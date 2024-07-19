@@ -9,11 +9,17 @@ use App\Models\Genre;
 
 class GenreController extends Controller
 {
-    public function getMoviesByGenre($gen_title)
+    public function getMoviesByGenreTitle($gen_title)
     {
         $genre = Genre::where('gen_title', $gen_title)
             ->with('movies')
             ->firstOrFail();
         return response()->json($genre);
+    }
+
+    public function getMoviesByGenre()
+    {
+        $movies = Genre::with('movies')->get();
+        return response()->json($movies);
     }
 }

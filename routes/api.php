@@ -22,8 +22,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('movies', [MovieController::class, 'getAllMovies']);
     Route::get('movies/{mov_id}', [MovieController::class, 'getMovieById']);
+    Route::get('directors', [DirectorController::class, 'getDirector']);
     Route::get('directors/{dir_id}', [DirectorController::class, 'getDirectorById']);
+    Route::get('actors', [ActorController::class, 'getActor']);
     Route::get('actors/{act_id}', [ActorController::class, 'getActorById']);
-    Route::get('genres/{gen_title}', [GenreController::class, 'getMoviesByGenre']);
+    Route::get('genres', [GenreController::class, 'getMoviesByGenre']);
+    Route::get('genres/{gen_title}', [GenreController::class, 'getMoviesByGenreTitle']);
     Route::get('ratings', [RatingController::class, 'getMoviesWithRatings']);
 });

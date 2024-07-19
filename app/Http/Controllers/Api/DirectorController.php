@@ -14,4 +14,10 @@ class DirectorController extends Controller
         $director = Director::with('movies')->findOrFail($id);
         return response()->json($director);
     }
+
+    public function getDirector()
+    {
+        $director = Director::with('movies')->get();;
+        return response()->json($director);
+    }
 }

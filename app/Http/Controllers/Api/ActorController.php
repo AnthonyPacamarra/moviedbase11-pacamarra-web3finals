@@ -13,4 +13,10 @@ class ActorController extends Controller
         $actor = Actor::with('movies')->findOrFail($id);
         return response()->json($actor);
     }
+
+    public function getActor()
+    {
+        $actor = Actor::with('movies')->get();;
+        return response()->json($actor);
+    }
 }
