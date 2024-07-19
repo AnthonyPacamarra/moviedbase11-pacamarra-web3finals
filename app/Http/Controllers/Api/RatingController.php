@@ -11,7 +11,7 @@ class RatingController extends Controller
 {
     public function getMoviesWithRatings()
     {
-        $movies = Movie::with(['ratings.reviewer'])->get();
+        $movies = Movie::with('ratings.reviewer')->get();
         return response()->json($movies);
     }
 }
